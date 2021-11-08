@@ -37,7 +37,8 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
 };
 
 checkRolesExisted = (req, res, next) => {
-  req.body.roles = JSON.parse(req.body.roles);
+
+  if (req.body.roles) req.body.roles = JSON.parse(req.body.roles);
 
   if (req.body.roles) {
     for (let i = 0; i < req.body.roles.length; i++) {
